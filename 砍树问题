@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class 砍树问题 {
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+       int l = in.nextInt();
+       int a[] = new int[l+1];//创建数组a 长度为l
+       int count = 0;
+       for(int i=0;i<=l;i++)//把数组a里面的数打上标记0，表示这个点没有被使用
+       {
+        a[i]=0;
+       }
+       int m = in.nextInt();
+       for(int i=1;i<=m;i++)//确定区间的起止
+       {
+        int u = in.nextInt();
+        int v = in.nextInt();
+        for(int j=u;j<=v;j++)//标记区间中的数
+        {
+            if(a[j]==0)
+            {
+                a[j]=1;
+            }
+        }
+       }
+       for(int i=0;i<=l;i++)//数未被标记的数
+       {
+        if(a[i]==0)
+        {
+            count++;
+        }
+       }
+       System.out.println(count);
+    }
+}
+
